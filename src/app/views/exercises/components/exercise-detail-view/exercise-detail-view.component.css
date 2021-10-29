@@ -1,0 +1,91 @@
+.card {
+  width:100%;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  text-align: center;
+  display: inline;
+  float: left;
+}
+
+.container {
+  padding: 2px 7px;
+}
+
+.textbox {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.list-entry {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+
+
+/* Dropdown Button */
+.tab-dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.tab-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.tab-dropdown-content li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.tab-dropdown-content li:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.tab-dropdown:hover .tab-dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.tab-dropdown:hover .tab-dropbtn {background-color: black;}
+
+/*Other Button styling*/
+.tab-btn {
+  background:transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* Change the background color of the button when hovering over */
+.tab:hover .tab-btn {background-color: black;}
+
+.clickable {
+  cursor: pointer;
+}
+.detail-view {
+  position: absolute;
+  z-index: 10;
+}
+
+.description {
+  grid-column: 1 /-1;
+}

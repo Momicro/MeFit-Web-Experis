@@ -1,0 +1,39 @@
+<div class="card">
+  <nav>  <!--If User is logged in-->
+      <div class="left">
+        <div class="tab">
+          <div class="tab-dropdown">
+            <button routerLink="/dashboard" class="tab-dropbtn">Dashboard</button>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="tab-dropdown">
+            <button class="tab-dropbtn">Views</button>
+            <div class="tab-dropdown-content">
+              <a routerLink="/programs">Programs</a>
+              <a routerLink="/workouts">Workouts</a>
+              <a routerLink="/exercises">Excercises</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="tab">
+      <div class="tab-dropdown">
+        <button class="tab-dropbtn user">{{authService.User.firstName}}</button>
+        <div class="tab-dropdown-content">
+          <a routerLink="/profile">Profile</a>
+          <a *ngIf="hasRole('Administrator')" routerLink="/admin">Admin</a>
+          <a (click)="Logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </nav>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

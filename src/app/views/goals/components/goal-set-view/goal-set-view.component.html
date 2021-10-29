@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="card-header">
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="border-set" placeholder="{{this.dashboardService.currentDate|date:'yyyy-MM-dd' }}"
+                 name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" [ngStyle]="{'color': 'white', 'background-color': 'transparent', 'box-shadow': '-10px 0 10px  #1abc9c','margin-right':'0'}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar border-set" [ngStyle]="{'color': 'white', 'background-color': 'transparent', 'box-shadow': '10px 0 10px  #1abc9c','margin-left':'0'}" (click)="d.toggle()" type="button"><i class="fa fa-calendar "></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button (click)="setGoal()" class="tab-dropbtn border-set">Save the goal</button>
+    <div class="w3-round-xlarge border-set pb" [ngStyle]="{'box-shadow' : '0 0 30px ' + maxBarColor + ', 0 0 10px ' + maxBarColor}">
+      <div class="w3-container w3-round-xlarge border-set-inner" [ngStyle]="{'width' : maxBarStyling(),'box-shadow' : '0 0 30px ' + maxBarColor + ', 0 0 10px ' + maxBarColor, 'background-color': maxBarColor}">
+        {{maxBarStylingText}}
+      </div>
+    </div>
+
+  </div>
+  <div class="body-wrapper">
+    <!--TODO add suggestions to it-->
+    <h2 class="left">Programs:</h2>
+    <!-- TODO make the box replicable with 3 Status (done,pending,failed)-->
+    <program-short *ngFor="let program of programList" [program]="program"></program-short>
+    <h2 class="left">Workouts:</h2>
+    <!-- TODO make the box replicable with 3 Status (done,pending,failed)-->
+    <workout-short *ngFor="let workout of workoutList" [workout]="workout"></workout-short>
+    <div class="top-right">
+      <selection-window></selection-window>
+    </div>
+
+  </div>
+</div>

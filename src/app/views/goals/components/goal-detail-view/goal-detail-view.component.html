@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div class="card-header">
+    <h1 >Goal {{currentGoal.id}}</h1> <h2>{{goal.startDate | date}} to {{goal.endDate | date}}</h2>
+    <div class="subheader">
+      <div class="w3-round-xlarge border-set">
+        <div id="selected-goal-progress" class="w3-container w3-round-xlarge border-set-inner" [ngStyle]="{'width' : progressBarStyling()}">
+          {{progressBarStyling()}}
+          <p *ngIf="this.daysLeft(goal.endDate)>1">{{this.daysLeft(goal.endDate)}} days left</p>
+          <p *ngIf="this.daysLeft(goal.endDate)==1">{{this.daysLeft(goal.endDate)}} day left</p>
+          <p *ngIf="this.daysLeft(goal.endDate)<1">done</p>
+        </div>
+      </div>
+      <button routerLink="/goals/set" class="tab-dropbtn border-set">Set new Goals!</button>
+    </div>
+  </div>
+
+
+
+  <div class="body-container">
+      <div class="header">
+        <h2>Workouts:</h2>
+        <button (click)="viewCompleted=!viewCompleted" id="completed" type="button" class="tab-dropbtn border-set">
+        show completed workouts
+      </button>
+        <h2>List of goals:</h2>
+
+      </div>
+        <!-- TODO make the box replicable with 3 Status (done,pending,failed)-->
+        <ng-container *ngFor="let workout of goalWorkoutList">
+          <workout-short [workout]="workout"></workout-short>
+        </ng-container>
+
+    <div class="top-right" [ngStyle]="{'grid-row-end': gridRowEnd()}">
+      <div class="container">
+        <ng-container *ngFor="let goal of goalList">
+          <goal-short [goal] = "goal"></goal-short>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+</div>

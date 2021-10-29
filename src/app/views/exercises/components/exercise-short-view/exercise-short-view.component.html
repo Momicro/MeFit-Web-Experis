@@ -1,0 +1,14 @@
+
+<div class="card">
+  <!--TODO only get the workouts of the specific program-->
+  <div class="container header">
+    <h2>{{exercise.name}}</h2>
+    <button [ngClass]="this.dashboardService.addBtn()" (click)="dashboardService.selectExercise(exercise)" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-plus "></i></button>
+  </div>
+
+  <button (click)="exercise.detail=!exercise.detail" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-search "></i></button>
+  <div *ngIf="exercise.detail==true">
+    <exercise-detail [exercise]="exercise"></exercise-detail>
+  </div>
+</div>
+

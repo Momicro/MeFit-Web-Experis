@@ -1,0 +1,21 @@
+
+  <div *ngIf="workout.detail==true">
+    <workout-detail [workout]="workout"></workout-detail>
+  </div>
+  <div [ngClass]="completed()">
+    <!--TODO only get the workouts of the specific program-->
+    <div class="container header">
+      <h2>{{workout.name}}</h2>
+      <button [ngClass]="this.dashboardService.addBtn()" (click)="dashboardService.selectWorkout(workout)" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-plus "></i></button>
+      <button  *ngIf="workout.completed == false" (click)="dashboardService.completeWorkout(workout);" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-check "></i></button>
+    </div>
+
+    <div class="container textbox">
+      <h2 class="typecard-label">Type:  </h2>
+      <div class="card">{{workout.type}}</div>
+    </div>
+
+    <button (click)="workout.detail=!workout.detail" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-search "></i></button>
+
+  </div>
+

@@ -1,0 +1,66 @@
+
+<!-- MODAL FORM FOR ADDING NEW EXERCISE -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      <span *ngIf="(exercise.id !== '')">Edit</span>
+      <span *ngIf="(exercise.id === '')">Create new</span>
+      exercise
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form novalidate class="simple-form" #exerciseForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="exercise.name" required>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="exercise.description" required>
+      </div>
+      <div class ="form-group">
+        <label>Musclegroup</label>
+        <select class="custom-select" name="muscleGroup" [(ngModel)]="exercise.muscleGroup">
+          <option *ngFor="let musclegroup of exerciseMusclegroup" [value]="musclegroup.id">{{musclegroup.name}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="onSubmit(); modal.close()" [disabled]="!exerciseForm.valid">Save</button>
+  </div>
+</ng-template>
+
+<!-- NORMAL VIEW -->
+  <div class="wrapper">
+    <div class="header">
+      <h2>Exercises:</h2>
+      <div class ="tab-add">
+        <button class="tab-dropbtn border-set" (click)="open(content, '')">Add new</button>
+      </div>
+      <div class="tab-dropdown">
+        <button class="tab-dropbtn">Sort by musclegroup</button>
+        <div class="tab-dropdown-content">
+            <div (click)="sortByMusclegroupClick($event)"><p>all</p></div>
+          <div *ngFor="let musclegroup of exerciseMusclegroup" (click)="sortByMusclegroupClick($event)"><p>{{musclegroup.name}}</p></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <ng-container class="ngc" *ngFor="let exercise of filteredExerciseList">
+      <div class="card">
+        <h2 class="exercise" (click)="open(content, exercise.id)">{{exercise.name}}</h2>
+      </div>
+
+      <!-- <exercise-short [exercise]="exercise"></exercise-short> -->
+    </ng-container>
+
+  </div>
+
+
+

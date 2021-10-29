@@ -1,0 +1,63 @@
+
+.body-container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.top-right {
+  grid-column: 3;
+  grid-row-start: 2;
+}
+
+
+workout-short {
+  padding: 10px;
+}
+
+.header {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.header h2 {
+  margin-top: 25px
+}
+
+/* Dropdown Button */
+.tab-dropbtn {
+  background-color: transparent;
+  color: white;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.border-set {
+  border: solid;
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #1abc9c, 0 0 10px #1abc9c;
+  margin: 16px;
+  padding: 10px;
+}
+
+.border-set-inner {
+  border-right: solid;
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #1abc9c, 0 0 10px #1abc9c;
+  background-color: #1abc9c;
+}
+
+.subheader{
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.wrapper {
+  width:80%;
+  position: center;
+}
+
+.card-header {
+  padding-bottom: 40px;
+}

@@ -1,0 +1,81 @@
+
+<!-- MODAL FORM FOR ADDING NEW workout -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      <span *ngIf="(workout.id !== '')">Edit</span>
+      <span *ngIf="(workout.id === '')">Create new</span>
+      workout
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form novalidate class="simple-form" #workoutForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="workout.name" required>
+      </div>
+      <div class ="form-group">
+        <label>Type</label>
+        <select class="custom-select" name="workoutType" [(ngModel)]="workout.type">
+          <option *ngFor="let workoutType of workoutTypes" [value]="workoutType">{{workoutType}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="onSubmit(); modal.close()" [disabled]="!workoutForm.valid">Save</button>
+  </div>
+</ng-template>
+<!--
+<div class="container">
+  <div class="container">
+    <div class="header">
+      <h2>Workouts:</h2>
+      <div class ="tab-add">
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content, '')">Add new</button>
+      </div>
+      <div class="tab-dropdown">
+        <button id="tab-dropbtn" class="tab-dropbtn">Sort by type</button>
+        <div class="tab-dropdown-content">
+          <ul>
+            <li (click)="sortByType($event)">all</li>
+            <li *ngFor="let type of workoutTypes" (click)="sortByType($event)" [value]=type>{{type}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngFor="let workout of filteredWorkoutList">
+
+      <div>
+
+        <div class="card">
+          <h2 class="workout" (click)="open(content, workout.id)">{{workout.name}}</h2>
+        </div>
+
+      </div>
+
+    </ng-container>
+
+-->
+<div class="wrapper">
+  <div class="header">
+    <h2>Workouts:</h2>
+    <div class ="tab-add">
+      <button class="tab-dropbtn border-set" (click)="open(content, '')">Add new</button>
+    </div>
+    <div class="tab-dropdown">
+      <button class="tab-dropbtn">Sort by type</button>
+      <div class="tab-dropdown-content">
+          <div (click)="sortByType($event)"><p>all</p></div>
+        <div *ngFor="let type of workoutTypes" (click)="sortByType($event)"><p>{{type}}</p></div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let workout of filteredWorkoutList">
+    <workout-short [workout]="workout"></workout-short>
+  </ng-container>
+</div>

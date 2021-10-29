@@ -1,0 +1,80 @@
+<form #profileForm="ngForm">
+
+<div class="wrapper">
+  <div class="container header">
+    <div class="container">
+      <div class="card-header">
+        <h1>Profile</h1>
+      </div>
+      <div class="body-container">
+        <div>
+          <label for="age">How old are you?</label><br>
+          <input type="number" min="8" max="100" name="age" id="age" class="tab-dropbtn border-set" [(ngModel)]="UserProfile.age" required>
+        </div>
+        <div>
+          <label for="height">How tall are you?</label><br>
+          <input type="number" min="100" max="250" name="height" id="height" class="tab-dropbtn border-set" [(ngModel)]="UserProfile.height">
+        </div>
+       <div>
+         <label for="weight">What do you weigh?</label><br>
+         <input type="number" min="25" max="300" name="weight" id="weight"  class="tab-dropbtn border-set" [(ngModel)]="UserProfile.weight">
+       </div>
+      </div>
+    </div>
+    <div class="container profile">
+      <img class="header profile-pic right" alt="profilepic" src="{{ProfilePictureUrl}}">
+      <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload accept="image/png, image/gif, image/jpeg">
+      <div class="file-upload">
+          <button class="tab-dropbtn border-set" (click)="fileUpload.click()">Upload / change picture</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="slidder container">
+      <label class="slidder-headline">What is your current fitnesslevel? ({{UserProfile.fitnessLevel}} %)</label>
+      <input type="range" min="1" max="100" class="slider" name="fitnessLevel" [(ngModel)]="UserProfile.fitnessLevel">
+      <label class="left">Couchpotatoe</label>
+      <label class="right">Expert</label>
+    </div>
+    <br>
+    <div class="slidder container">
+      <label class="slider-headline">How often do you train? ({{UserProfile.trainingFrequency}} %)</label>
+      <input type="range" min="1" max="100" class="slider" name="trainingFrequency" [(ngModel)]="UserProfile.trainingFrequency">
+      <label class="left">Never</label>
+      <label class="right">Every day</label>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!this.hasRole('Contributor')">
+    <div class="contributor-btn container">
+        <input #contributorRequest
+               id="contributorRequest"
+               type="checkbox"
+               [checked]="UserProfile.contributorRequest"
+               (change)="UserProfile.contributorRequest = contributorRequest.checked" />
+        &nbsp;<label for="contributorRequest">Request contributor rights</label>
+
+    </div>
+  </div>
+
+  <br />
+  <button type="submit" (click)="onSubmit()" [disabled]="!profileForm.valid" class="tab-dropbtn border-set" style="width: 10em; font-weight: bold">Save</button>
+
+  <br /><br />
+
+
+  <div class="password-btn container" style="border: 1px solid black">
+    <label>Account settings</label>
+    <div>Name: {{UserFullName}}</div>
+    <div>User-ID: {{UserID}}</div>
+    <div>Profile-ID: {{ProfileID}}</div>
+
+    <br>
+    <a [href]="LinkAccountManagementUrl" target="_blank">
+      <button type="button" class="password icon-btn" (click)="onSubmit()"><i class="material-icons">lock</i></button>
+      <label style="margin-left: 5px">Manage account</label>
+    </a>
+  </div>
+
+</div>
+</form>

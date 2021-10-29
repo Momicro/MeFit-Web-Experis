@@ -1,0 +1,18 @@
+<div class="wrapper detail-view">
+  <div class="header">
+    <h2>{{program.name}}</h2>
+    <button (click)="program.detail=!program.detail" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-search "></i></button>
+  </div>
+
+  <div class="container textbox">
+    <h2 class="typecard-label">Category:  </h2>
+    <div class="textbox">{{program.category}}</div>
+  </div>
+
+  <div class="body-wrapper">
+    <ng-container *ngFor="let workout of programService.Workouts(program)">
+      <workout-short [workout]="workout"></workout-short>
+    </ng-container>
+  </div>
+
+</div>

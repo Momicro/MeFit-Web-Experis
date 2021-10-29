@@ -1,0 +1,12 @@
+<div class="month">
+  <div>{{currentDate | date: 'MMMM'}}<br><span style="font-size:18px">{{currentDate | date: 'yyyy'}}</span></div>
+  <div class="horizontal">
+    <div class="days" *ngFor="let day of calendarArray" [class.active]="day.getTime() == currentDate.getTime()">
+        <li>{{day | date:'E'}}</li>
+        <li>{{day | date:'d'}} </li>
+    </div>
+  </div>
+</div>
+
+<goal-detail *ngIf="ActiveGoal != undefined" [goal] = "ActiveGoal"></goal-detail>
+<goal-set *ngIf="ActiveGoal == undefined"></goal-set>

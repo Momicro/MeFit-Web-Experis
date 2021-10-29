@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <h2>Selected units:</h2>
+  <button (click)="dashboardService.clearSelection()" class="tab-dropbtn border-set clickable clearall"  type="submit">clear all</button>
+</div>
+  <div class="card wrapper" *ngFor="let program of dashboardService.selectedProgramsList()">
+    <p>{{program.name}}</p>
+    <button (click)="dashboardService.deleteSelectedProgram(program)" class="tab-dropbtn border-set clickable "  type="submit"><i class="fa fa-trash"></i></button>
+  </div>
+  <div class="card wrapper"  *ngFor="let workout of dashboardService.selectedWorkoutsList()">
+    <p>{{workout.name}}</p>
+    <button (click)="dashboardService.deleteSelectedWorkout(workout)" class="tab-dropbtn border-set clickable"  type="submit"><i class="fa fa-trash "></i></button>
+  </div>
+

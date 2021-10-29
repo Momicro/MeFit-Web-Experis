@@ -1,0 +1,23 @@
+<div *ngIf="program.detail==true">
+  <ng-container>
+    <program-detail [program]="program"></program-detail>
+  </ng-container>
+
+</div>
+<div class="card">
+
+  <div class="container header">
+    <h2>{{program.name}}</h2>
+    <button [ngClass]="this.dashboardService.addBtn()" (click)="dashboardService.selectProgram(program)" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-plus "></i></button>
+  </div>
+    <div class="container textbox">
+      <h2 class="typecard-label">Category:  </h2>
+      <div class="card">{{program.category}}</div>
+    </div>
+
+
+
+    <!-- First program.detail is set true by default in cause of development          (click)="programService.arrangedByCategory()" >{{program.category}}</mat-option-->
+    <button (click)="program.detail=!program.detail" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-search "></i></button>
+
+</div>

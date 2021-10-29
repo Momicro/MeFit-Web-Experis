@@ -1,0 +1,8 @@
+<div class="card">
+  <!-- TODO make the box replicable with 3 Status (done,pending,failed)-->
+  <div class="card list-entry">
+    <h2>Goal {{goal.id}}</h2>
+    <div class="date-part"><p>from:</p><div class="card"><p>{{goal.startDate | date:'dd.MM.yyyy' }}</p></div> <p>to:</p> <div class="card"><p>{{goal.endDate | date:'dd.MM.yyyy'}} </p></div> </div>
+    <button  routerLink="/goals/{{goal.id}}" (click)="dashboardService.getGoalWorkoutList(goal);dashboardService.getCompletedGoalWorkoutList(goal)" class="tab-dropbtn clickable"  type="submit"><i class="fa fa-search "></i></button>
+  </div>
+</div>

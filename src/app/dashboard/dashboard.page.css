@@ -1,0 +1,39 @@
+
+/* Month header */
+.month {
+  position: relative;
+  left: 15%;
+  background: transparent;
+  text-align: center;
+  color: white;
+  width: 70%;
+  margin-top: -50px;
+  padding-bottom: 50px;
+}
+
+/* Days (1-31) */
+.days {
+  background: transparent;
+  list-style-type: none;
+}
+
+.days li {
+  text-align: center;
+  font-size:12px;
+  color: white;
+}
+
+/* Highlight the "current" day */
+.active{
+  background: transparent;
+  border: solid;
+  border-radius: 10px;
+  border-color: #1abc9c;
+  box-shadow: 0 0 30px #1abc9c, 0 0 10px #1abc9c;
+  color: white !important;
+}
+
+.horizontal {
+  display: grid;
+  grid-template-columns: repeat(14,7%);
+}

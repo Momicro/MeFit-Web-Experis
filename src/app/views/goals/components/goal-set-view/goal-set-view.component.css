@@ -1,0 +1,67 @@
+.wrapper {
+  width:80%;
+  position: center;
+
+}
+
+.body-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.pb {
+  grid-column: 1/3;
+}
+
+.card-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.top-right {
+  grid-column: 3;
+  grid-row-start: 1;
+  grid-row: 1 /5;
+  padding: 10px;
+}
+
+.left{
+  grid-column: 1/3;
+}
+
+/* Dropdown Button */
+.tab-dropbtn {
+  background-color: transparent;
+  color: white;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.border-set {
+  border: solid;
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #1abc9c, 0 0 10px #1abc9c;
+  margin: 16px;
+  padding: 10px;
+}
+
+.border-set-inner {
+  border-right: solid;
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #1abc9c, 0 0 10px #1abc9c;
+  background-color: #1abc9c;
+}
+
+
+
+program-short {
+  padding: 10px;
+}
+workout-short {
+  padding: 10px;
+}
+exercise-short {
+  padding: 10px;
+}

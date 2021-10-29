@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="wrapper">
+
+    <h1>Admin Center</h1>
+
+    <h2>Contribute requests</h2>
+
+    <p>
+    The following list shows all users which have requested the contributor right.<br>
+    After you have added the "Contributor"-Role in <a href="{{KeycloakAdminUrl}}" target="_blank">Keycloak Administration Console</a>
+    you can mark the request as granted.
+    </p>
+
+
+    <h3>Users with contribute requests</h3>
+
+    <i *ngIf="Users?.length == 0">Currently there are no users with contribute requests.</i>
+
+    <div *ngFor="let user of Users" style="margin-bottom: 10px">{{user.firstName}} {{user.lastName}} ({{user.email}}) <button (click)="grantContributorAccess(user)">Access granted</button></div>
+
+    </div>
+
+</div>
